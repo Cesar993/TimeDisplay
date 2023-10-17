@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <title>Time</title>
+</head>
+
+<body>
+    @{
+        DateTime fecha = new DateTime(2023, 10, 22, 10, 30, 0);
+        DateTime currentTime = (DateTime)ViewBag.CurrentTime; // Convierte ViewBag.CurrentTime a DateTime
+        TimeSpan Remains = fecha - currentTime; 
+        string Horas = Remains.ToString("hh");
+        string Minutos = Remains.ToString("mm");
+        }
+    <div class="block1">
+        <div class="block2">
+            <div class="start">
+                <h1>Start time</h1>
+
+                <h2>@ViewBag.CurrentTime.ToString("MMM dd, yyyy HH:mm tt")</h2>
+            </div>
+            <div class="end">
+                <h1>End Time</h1>
+                <h2>@fecha.ToString("MMM dd, yyyy HH:mm tt")</h2>
+
+            </div>
+        </div>
+        <div class="block3">
+            <h1>Time Remaining</h1>
+            <h2>(@Remains.ToString("dd")) dia(s) @Horas Hora(s) @Minutos Minuto(s) </h2>
+         <h1>Remaining</h1>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
